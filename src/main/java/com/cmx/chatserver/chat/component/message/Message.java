@@ -12,7 +12,7 @@ public class Message {
     /**
      * 消息的id 唯一
      */
-    protected String msgId;
+    protected Long msgId;
 
     /**
      * 消息的内容
