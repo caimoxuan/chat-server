@@ -4,6 +4,7 @@ package com.cmx.chatserver.filter;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
@@ -18,8 +19,8 @@ public class CorsFilter implements Filter{
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         HttpServletResponse response = (HttpServletResponse) res;
-        //前端使用axios 开启withCredentials : true 的时候， 不能使用 * 设置域 使用此替代方案 再spring2 的时候已经支持了*；
-        response.setHeader("Access-Control-Allow-Origin", "*");
+        //前端使用axios 开启withCredentials : true 的时候， 不能使用 * 设置域 使用此替代方案 再spring2 的时候已经支持了* 还要看前端是否支持
+        response.setHeader("Access-Control-Allow-Origin", ((HttpServletRequest)req).getHeader("origin"));
         response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
         response.setHeader("Access-Control-Max-Age", "3600");
         response.setHeader("Access-Control-Allow-Headers", "Authorization, Origin, X-Requested-With, Content-Type, Accept");
