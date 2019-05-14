@@ -1,11 +1,16 @@
 package com.cmx.chatserver.chat.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum MessageType {
 
-    LOGIN(0, "login", "登入消息"),
-    USER(1, "user", "对话消息"),
-    SYSTEM(2, "system", "系统消息"),
-    EMJO(3, "emjo", "表情");
+    SYSTEM(0, "system", "系统消息"),
+    LOGIN(1, "login", "登入消息"),
+    FILE(2, "file", "文件"),
+    TEXT(1001, "text", "对话消息"),
+    IMG(1002, "img", "图片"),
+    EMOJI(1003, "emoji", "表情");
 
     private int code;
     private String msg;

@@ -8,6 +8,9 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author cmx
+ */
 @Slf4j
 @Component
 public class RoomManager {

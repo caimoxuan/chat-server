@@ -2,6 +2,9 @@ package com.cmx.chatserver.chat.channel;
 
 import io.netty.channel.ChannelHandlerContext;
 
+/**
+ * @author cmx
+ */
 public class ChannelManager {
 
     private static final ThreadLocal<ChannelHandlerContext> localChannel = new ThreadLocal<>();
