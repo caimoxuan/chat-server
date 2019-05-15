@@ -37,8 +37,8 @@ public abstract class ProtoBufMessageHandler {
 
     void saveMessage(ChatMessageOuterClass.ChatMessage chatMessage) {
         //将消息中的文件信息去除，不要保存二进制数据
-        chatMessage.getFileMessage().toBuilder().clearFileContent();
-        String jsonMessage = JsonFormat.printToString(chatMessage);
+        String jsonMessage = JsonFormat.printToString(chatMessage.toBuilder().setFileMessage(chatMessage.toBuilder().getFileMessage().toBuilder().clearFileContent()).build());
+        System.out.println(jsonMessage);
         try {
             mongoRepository.insert(jsonMessage, "chat_log");
         }catch(Exception e){

@@ -33,8 +33,8 @@ public class ChatServiceStarter {
             // ChildChannelHandler 对出入的数据进行的业务操作,其继承ChannelInitializer
             b.childHandler(chatChannelHandler);
             Channel ch = b.bind(7397).sync().channel();
-            ch.closeFuture().sync();
             log.info("netty server start, accept at port 7397");
+            ch.closeFuture().sync();
         } catch (Exception e) {
             e.printStackTrace();
         }finally{
