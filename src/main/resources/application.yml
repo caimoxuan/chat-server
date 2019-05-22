@@ -6,6 +6,11 @@ spring:
       host: 127.0.0.1
       port: 27017
       database: paycenter
+    elasticsearch:
+      cluster-nodes: 127.0.0.1:9300
+      repositories:
+        enabled: true
+      cluster-name: elasticsearch
   redis:
     host: 127.0.0.1
     port: 6379

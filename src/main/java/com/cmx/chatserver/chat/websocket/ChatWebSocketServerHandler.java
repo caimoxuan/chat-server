@@ -74,7 +74,6 @@ public class ChatWebSocketServerHandler extends SimpleChannelInboundHandler<Obje
      * @param msg
      * @throws Exception
      */
-    @Override
     protected void messageReceived(ChannelHandlerContext ctx, Object msg) throws Exception {
         //第一次建立http连接
         if (msg instanceof FullHttpRequest) {
@@ -175,4 +174,8 @@ public class ChatWebSocketServerHandler extends SimpleChannelInboundHandler<Obje
         ctx.close();
     }
 
+    @Override
+    protected void channelRead0(ChannelHandlerContext channelHandlerContext, Object o) throws Exception {
+
+    }
 }
